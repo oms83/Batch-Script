@@ -26,10 +26,3 @@ echo omer memes
 
 pause > nul
 
-GOTO :COMMENT
-
-Bu bölüm yorum satırıdır.
-Buraya yazılan hiçbir şey çalışmaz.
-İstediğiniz kadar satır ekleyebilirsiniz.
-
-:COMMENT
