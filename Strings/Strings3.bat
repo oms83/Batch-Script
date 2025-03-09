@@ -31,4 +31,65 @@ goto :Substring
 	
 :Substring 
 
+
+:: Remove
+goto :Remove
+
+set str=Batch scripts is easy. It is really easy. 
+echo %str% 
+
+:: set str=%str:real=%
+echo %str%
+
+:: Batch scripts  easy. It  ly easy.
+set str=%str:is=%
+echo %str%
+:Remove
+
+
+::Remove Both Ends
+goto:RemoveBothEnds
+set str=Batch scripts is easy. It is really easy 
+echo %str% 
+set str=%str:~1,-2% 
+echo %str%
+:RemoveBothEnds
+
+::Remove All Spaces
+goto:RemoveAllSpaces
+set str=Batch scripts is easy. It is really easy
+set str=%str: =%
+echo %str%
+:RemoveAllSpaces
+
+::Replace a String
+goto:ReplaceString
+set str=This message needs changed. 
+echo %str% 
+set str=%str:needs=has%
+echo %str% 
+:ReplaceString
+
+goto:RemoveAllSpacesUsingReplaceString
+set str=This message needs changed. 
+echo %str% 
+set str=%str: =%
+echo %str% 
+:RemoveAllSpacesUsingReplaceString
+
+::Right String
+REM goto:RightString
+set str=This message needs changed.
+echo %str% 
+
+:: -> changed.
+echo %str:~-8% 
+
+:: -> This message needs
+echo %str:~0,-8% 
+
+:: -> needs
+echo %str:~13,-8% 
+
+REM :RightString
 pause > nul
