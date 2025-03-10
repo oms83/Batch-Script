@@ -8,6 +8,8 @@ set /a num = 6 + %strNum%
 echo %num%
 :toInt
 
+
+
 ::Substring 
 goto :Substring 
 	:: %variable:~start,length%
@@ -47,6 +49,7 @@ echo %str%
 :Remove
 
 
+
 ::Remove Both Ends
 goto:RemoveBothEnds
 set str=Batch scripts is easy. It is really easy 
@@ -55,12 +58,16 @@ set str=%str:~1,-2%
 echo %str%
 :RemoveBothEnds
 
+
+
 ::Remove All Spaces
 goto:RemoveAllSpaces
 set str=Batch scripts is easy. It is really easy
 set str=%str: =%
 echo %str%
 :RemoveAllSpaces
+
+
 
 ::Replace a String
 goto:ReplaceString
@@ -70,6 +77,8 @@ set str=%str:needs=has%
 echo %str% 
 :ReplaceString
 
+
+
 goto:RemoveAllSpacesUsingReplaceString
 set str=This message needs changed. 
 echo %str% 
@@ -77,8 +86,10 @@ set str=%str: =%
 echo %str% 
 :RemoveAllSpacesUsingReplaceString
 
+
+
 ::Right String
-REM goto:RightString
+goto:RightString
 set str=This message needs changed.
 echo %str% 
 
@@ -91,5 +102,7 @@ echo %str:~0,-8%
 :: -> needs
 echo %str:~13,-8% 
 
-REM :RightString
+:RightString
+
+
 pause > nul
