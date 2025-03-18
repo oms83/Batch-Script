@@ -61,3 +61,56 @@ goto:FunctionsWithReturnValues
 		exit /b
 	endlocal
 :FunctionsWithReturnValues
+
+
+
+:: Local Variables in Functions
+goto:LocalVariablesInFunctions
+	set str=Outer
+	echo %str%
+	call:function_loc str
+	echo %str%
+	pause
+	exit /b
+
+	:function_loc
+		set str=Inner
+		exit /b
+:LocalVariablesInFunctions
+
+
+:: Recursive Functions
+goto:ex1
+set /a x=10
+call :rec_func %x%
+pause > nul
+exit /b
+
+:rec_func
+	if %1 leq 0 exit /b
+	echo %1
+	set /a new_value=%1-1
+	call :rec_func %new_value%
+	exit /b
+:ex1
+
+
+
+REM goto:ex2
+	setlocal enabledelayedexpansion
+	set /a input=100
+	call :print_even %input%
+	pause
+	exit /b
+
+	:print_even
+		if %1 leq 0 exit /b
+
+		set /a result=%1 %% 2
+		if %result% equ 0 echo %1
+
+		set /a new_value=%1-1
+		call :print_even %new_value%
+		exit /b
+		
+REM :ex2
